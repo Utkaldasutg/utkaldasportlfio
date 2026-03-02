@@ -52,14 +52,16 @@ const ProjectDetails = () => {
                     {project.description}
                 </p>
 
-                <div className="flex items-center gap-4 mb-16">
-                    <button className="flex items-center gap-2 bg-white text-black px-5 py-2.5 rounded-full font-medium text-sm hover:bg-zinc-200 transition-colors">
-                        <ExternalLink size={16} /> Live Demo
-                    </button>
-                    <button className="flex items-center gap-2 bg-zinc-900 border border-zinc-800 text-white px-5 py-2.5 rounded-full font-medium text-sm hover:bg-zinc-800 transition-colors">
-                        <Github size={16} /> Source Code
-                    </button>
-                </div>
+                {projects.findIndex(p => p.id === project.id) < 3 && (
+                    <div className="flex items-center gap-4 mb-16">
+                        <button
+                            onClick={() => document.getElementById('programming-and-implementation')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="flex items-center gap-2 bg-zinc-900 border border-zinc-800 text-white px-5 py-2.5 rounded-full font-medium text-sm hover:bg-zinc-800 transition-colors"
+                        >
+                            <Github size={16} /> Source Code
+                        </button>
+                    </div>
+                )}
 
                 <motion.div
                     className="aspect-video w-full rounded-2xl overflow-hidden bg-zinc-900 mb-16 border border-zinc-800"
@@ -97,7 +99,20 @@ const ProjectDetails = () => {
                 <div className="max-w-none">
                     <ReactMarkdown
                         components={{
-                            h2: ({ node, ...props }) => <h2 className="text-2xl font-bold mt-16 mb-6 border-b border-zinc-800 pb-4 text-white" {...props} />,
+                            h2: ({ node, ...props }) => {
+                                const getText = (children) => {
+                                    if (typeof children === 'string') return children;
+                                    if (Array.isArray(children)) return children.map(getText).join('');
+                                    if (children?.props?.children) return getText(children.props.children);
+                                    return '';
+                                };
+                                const text = getText(props.children);
+                                const id = text.toLowerCase()
+                                    .replace(/&/g, 'and')
+                                    .replace(/[^a-z0-9]+/g, '-')
+                                    .replace(/(^-|-$)/g, '');
+                                return <h2 id={id} className="text-2xl font-bold mt-16 mb-6 border-b border-zinc-800 pb-4 text-white" {...props} />;
+                            },
                             h3: ({ node, ...props }) => <h3 className="text-xl font-bold mt-10 mb-4 text-zinc-100" {...props} />,
                             p: ({ node, ...props }) => {
                                 // Check if paragraph only contains images and whitespace

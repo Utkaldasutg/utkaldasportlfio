@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
+import { Github, Linkedin, Instagram } from 'lucide-react';
 
 const Footer = () => {
     return (
@@ -8,14 +8,14 @@ const Footer = () => {
                     © {new Date().getFullYear()} Utkal Das. All rights reserved.
                 </p>
                 <div className="flex items-center gap-6 text-zinc-500">
-                    <a href="#" className="hover:text-white transition-colors">
+                    <a href="https://github.com/Utkaldasutg" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                         <Github size={20} />
                     </a>
-                    <a href="#" className="hover:text-white transition-colors">
+                    <a href="https://www.linkedin.com/in/utkal-das-43bb071a7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                         <Linkedin size={20} />
                     </a>
-                    <a href="#" className="hover:text-white transition-colors">
-                        <Twitter size={20} />
+                    <a href="https://www.instagram.com/u_t_k_a_l_utg" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                        <Instagram size={20} />
                     </a>
                     <a href="https://mail.google.com/mail/?view=cm&fs=1&to=utkaldas234@gmail.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

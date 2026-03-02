@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Terminal, Code2, Cpu, Database, Blocks, Wifi } from 'lucide-react';
+import { ArrowRight, Cpu, Wifi, Server, HardDrive, Zap, Radio, CircuitBoard } from 'lucide-react';
 
 const Hero = () => {
     return (
@@ -7,25 +7,25 @@ const Hero = () => {
             {/* Background Glows */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-zinc-800/30 blur-[120px] rounded-full pointer-events-none" />
 
-            {/* Scattered Doodles / Illustrations */}
+            {/* Scattered IoT & Embedded Illustrations */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-[0.25]">
                 <motion.div animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} className="absolute top-[15%] left-[10%] text-emerald-500">
-                    <Code2 size={40} />
+                    <CircuitBoard size={40} />
                 </motion.div>
                 <motion.div animate={{ y: [0, 25, 0], rotate: [0, -15, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }} className="absolute top-[20%] right-[15%] text-blue-500">
                     <Cpu size={48} />
                 </motion.div>
                 <motion.div animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }} className="absolute bottom-[25%] left-[15%] text-purple-500">
-                    <Database size={32} />
+                    <Server size={32} />
                 </motion.div>
                 <motion.div animate={{ y: [0, 20, 0], rotate: [0, -10, 0] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1.5 }} className="absolute bottom-[30%] right-[10%] text-orange-500">
-                    <Blocks size={44} />
+                    <Zap size={44} />
                 </motion.div>
-                <motion.div animate={{ y: [0, -30, 0], rotate: [0, 20, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 3 }} className="absolute top-[45%] left-[5%] text-emerald-300">
+                <motion.div animate={{ y: [0, -30, 0], rotate: [0, 20, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 3 }} className="absolute top-[45%] left-[5%] text-sky-400">
                     <Wifi size={24} />
                 </motion.div>
                 <motion.div animate={{ y: [0, 30, 0], rotate: [0, -20, 0] }} transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 0.5 }} className="absolute top-[55%] right-[5%] text-zinc-400">
-                    <Terminal size={28} />
+                    <Radio size={28} />
                 </motion.div>
             </div>
 
@@ -55,7 +55,7 @@ const Hero = () => {
                     </h1>
 
                     <h2 className="text-sm md:text-base text-zinc-400 font-medium tracking-tight flex items-center justify-center gap-2 md:gap-3 text-center">
-                        <span className="flex items-center gap-1.5 text-white"><Terminal size={14} className="text-zinc-500" /> Full Stack Dev</span>
+                        <span className="flex items-center gap-1.5 text-white"><Cpu size={14} className="text-zinc-500" /> Assistant Engineer</span>
                         <span className="text-zinc-700">•</span>
                         <span>Embedded Systems</span>
                     </h2>
@@ -78,10 +78,7 @@ const Hero = () => {
                             className="absolute inset-3 opacity-40 border border-zinc-700 rounded-full border-dotted"
                         />
                         <div className="relative w-14 h-14 bg-zinc-900/80 backdrop-blur-md border border-zinc-700/50 rounded-2xl flex items-center justify-center shadow-2xl rotate-12 group-hover:rotate-0 transition-transform duration-500">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-500">
-                                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
-                                <circle cx="12" cy="12" r="4" />
-                            </svg>
+                            <CircuitBoard size={24} strokeWidth={1.5} className="text-emerald-500" />
                         </div>
                     </motion.div>
 
@@ -113,6 +110,15 @@ const Hero = () => {
                         <p>
                             Alongside my professional responsibilities, my academic schedule is presently being conducted in online mode, allowing me the flexibility to actively prepare for and contribute to the <span className="text-zinc-200">AWaDH Internship project</span>. With hands-on experience in embedded systems, AI-enabled IoT integration, and industrial instrumentation, I will be able to dedicate approximately 40 hours per week to the project. I am also willing to invest additional time and effort whenever required to ensure meaningful technical contributions and successful project execution.
                         </p>
+                    </div>
+
+                    {/* Hardware Badges */}
+                    <div className="flex flex-wrap gap-2 mt-6">
+                        {['Embedded C/C++', 'IoT Integration', 'PCB Design', 'Industrial Automation', 'RTOS', 'Sensors & PLC', 'Microcontrollers'].map(tech => (
+                            <span key={tech} className="px-3 py-1.5 bg-black/40 border border-zinc-700/50 rounded-full text-[12px] font-semibold text-emerald-400/90 shadow-sm flex items-center gap-1.5 hover:bg-zinc-800 transition-colors cursor-default">
+                                <Cpu size={12} className="opacity-70" /> {tech}
+                            </span>
+                        ))}
                     </div>
                 </div>
 
